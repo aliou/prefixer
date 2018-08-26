@@ -1,0 +1,6 @@
+[package]
+name = "prefixer"
+version = "0.1.0"
+authors = ["Aliou Diallo <code@aliou.me>"]
+
+[dependencies]
