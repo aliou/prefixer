@@ -24,12 +24,12 @@ fn main() -> io::Result<()> {
     // Lock the handle so we can read from it.
     let handle = stdin.lock();
 
+    // Unwrap the lines from the handle so we have an actual line and not a Result<line>.
+    let unwrapped_lines = handle.lines().map(|line| line.unwrap());
+
     // Loop on the lines from the handle using the `BufRead` trait's `lines`.
-    for line in handle.lines() {
-        match line {
-            Ok(string) => println!("{} {}", prefix, string),
-            _ => (),
-        }
+    for line in unwrapped_lines {
+        println!("{} {}", prefix, line)
     }
 
     Ok(())
